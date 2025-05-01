@@ -1,0 +1,72 @@
+// Os recursos de script mudaram para a v2.3.0; veja
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 para obter mais informações
+
+// configurando o tempo do jogo
+// definindo os frames do jogo (fps) 
+
+#macro FRAMES 60
+game_set_speed(FRAMES, gamespeed_fps);
+
+//Usando o deltatime para ajustar o tempo do meu jogo
+// Velocidade do jogo
+global.game_spd = 1;
+//Definindo o framerate do jogo
+global.framerate = global.game_spd / FRAMES;
+//Identificando a duração de 1 segundo no jogo
+global.gamesegundos = 0;
+
+//Função para atualizar o tempo do jogo
+function atualiza_tempo()
+{
+	//pegando o tempo em segundos
+	global.gamesegundos = delta_time / 1000000;
+	global.framerate = global.gamesegundos * global.game_spd;
+}	
+
+global.exibe_managers = false;
+
+//Sistema de Dinheiro
+global.gold = 4;
+
+
+//Informações dos managers
+global.manager = [0, 0, 0, 0, 0, 0, 0, 0,];
+
+//lista dos produtos
+global.produtos = [0, 0, 0, 0, 0, 0, 0, 0,];
+
+
+//Abrindo o meu arquivo json que foi importado
+
+var _file =  file_text_open_read("dados.json");
+var _txt = "";
+//Rodando pelo meu file lendo todas as linhas até ele acabar
+//criando um loop
+while(true)
+{
+	//Se ele chegou no final do arquivo ele sai do loop
+	if(file_text_eof(_file))
+	{
+		//Saindo do loop
+		break;
+	}
+	else
+	{
+		var _linha = file_text_readln(_file);
+		_txt += _linha;
+	}		
+}
+//Convertendo o texto em struct
+global.struct_produtos = json_parse(_txt).items; 
+
+
+
+
+
+
+
+
+
+
+
+
