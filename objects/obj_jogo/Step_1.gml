@@ -12,12 +12,18 @@ else
 	global.game_spd = 1;
 }
 
+if (keyboard_check_pressed(ord("S")))
+{
+	save_game();	
+}
+
 if(keyboard_check_pressed(ord("L")))
 {
-	global.gold += 10000;	
+	global.gold += 10000000000;
 }
 
 gerencia_produtos();
+gerencia_managers();
 
 
 

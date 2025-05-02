@@ -6,14 +6,18 @@
     {"id":{"name":"inicializar","path":"scripts/inicializar/inicializar.yy",},"order":0,},
     {"id":{"name":"obj_botao","path":"objects/obj_botao/obj_botao.yy",},"order":3,},
     {"id":{"name":"spr_item","path":"sprites/spr_item/spr_item.yy",},"order":1,},
+    {"id":{"name":"obj_selecao_idioma","path":"objects/obj_selecao_idioma/obj_selecao_idioma.yy",},"order":5,},
     {"id":{"name":"funcoes","path":"scripts/funcoes/funcoes.yy",},"order":1,},
+    {"id":{"name":"rm_idioma","path":"rooms/rm_idioma/rm_idioma.yy",},"order":1,},
     {"id":{"name":"obj_jogo","path":"objects/obj_jogo/obj_jogo.yy",},"order":1,},
     {"id":{"name":"fnt_texto","path":"fonts/fnt_texto/fnt_texto.yy",},"order":0,},
     {"id":{"name":"spr_produto","path":"sprites/spr_produto/spr_produto.yy",},"order":0,},
+    {"id":{"name":"spr_botao_configuracao","path":"sprites/spr_botao_configuracao/spr_botao_configuracao.yy",},"order":4,},
     {"id":{"name":"spr_info","path":"sprites/spr_info/spr_info.yy",},"order":3,},
     {"id":{"name":"spr_botao","path":"sprites/spr_botao/spr_botao.yy",},"order":2,},
     {"id":{"name":"obj_produto","path":"objects/obj_produto/obj_produto.yy",},"order":0,},
     {"id":{"name":"obj_manager","path":"objects/obj_manager/obj_manager.yy",},"order":2,},
+    {"id":{"name":"obj_idioma_botao","path":"objects/obj_idioma_botao/obj_idioma_botao.yy",},"order":4,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
@@ -34,6 +38,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"rm_idioma","path":"rooms/rm_idioma/rm_idioma.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "Folders": [
@@ -59,7 +64,8 @@
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","isScaled":true,"compressFormat":"bz2","loadType":"default","directory":"","autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,},
   ],
   "IncludedFiles": [
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"dados.json","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"dados.json","CopyToMask":3035426170322551022,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"dados_en.json","CopyToMask":-1,"filePath":"datafiles",},
   ],
   "MetaData": {
     "IDEVersion": "2022.0.3.85",

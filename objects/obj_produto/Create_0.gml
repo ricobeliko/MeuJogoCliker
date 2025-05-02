@@ -15,18 +15,9 @@ meu_x = 0;
 meu_y = 0;
 //definindo se devo fazer
 fazer = false;
+infos = false;
 
-
-if (array_length(global.manager) <= indice)
-{
-	Tenho_manager = global.manager[indice];
-}
-else
-{
-	array_push(global.manager, 0);
-	Tenho_manager = 0;
-}
-
+Tenho_manager = false;
 
 //Meus custos
 custo = custo_base;
@@ -59,6 +50,14 @@ comprar = function()
 	lucro = lucro_base * level;	
 }
 
+ajusta_infos = function()
+{
+	lucro = lucro_base * level;	
+	custo = floor(custo_base * (power(incremento, level)));
+	//Atualizando o comprado
+	if (comprado) fazer = true;
+}
+
 acao = function()
 {
 	timer = 0;
@@ -88,11 +87,13 @@ desenha_produto = function()
 	var _x = x;
 	var _y = y + 24;
 	draw_ellipse_color(_x - 24, _y - 16, _x + 24, _y + 16, c_dkgray, c_dkgray, false);
+	
 	//Configururando o alpha
 		gpu_set_colorwriteenable(1, 1, 1, 0);
 	draw_text(_x, _y, level);
 	//Resetando o alpha
 		gpu_set_colorwriteenable(1, 1, 1, 1);
+		
 
 	//Desenhando a barra de progresso
 	var _x1 = x + 42;
@@ -112,6 +113,7 @@ desenha_produto = function()
 	//Ajustando o alinhamento
 	draw_set_halign(2);
 	var _str = convert_num(lucro);
+	
 	//Configururando o alpha
 		gpu_set_colorwriteenable(1, 1, 1, 0);
 	draw_text(_x2 - 4, _y1 + sprite_height / 8, _str);
@@ -149,25 +151,18 @@ desenha_produto = function()
 	var _seg = _s > 9 ? _s : "0" + string(_s);
 	var _min = _m > 9 ? _m : "0" + string(_m);
 	var _hor = _h > 9 ? _h : "0" + string(_h);
-	
-	//Configururando o alpha
-		gpu_set_colorwriteenable(1, 1, 1, 0);
 	draw_text(x + sprite_width - 24, _y1 + 16, string("{0}:{1}:{2}", _hor, _min, _seg));
-
 		//Resetando o alpha
 		gpu_set_colorwriteenable(1, 1, 1, 1);
+		
 	draw_set_halign(1);
 	// resetando o alinhamento do meu texto
 	draw_set_valign(-1);
 	draw_set_halign(-1);
 
-	if(efeito_comprar)
+	if(infos)
 	{
-		
-		
 		exibe_info();	
-		
-		
 	}
 	draw_set_font(-1);
 }
@@ -180,7 +175,9 @@ exibe_info = function()
 	
 	//Desenhand a caixinha que fica em baixo do produto
 	draw_sprite_stretched(spr_info, 0 , _x1, _y1, sprite_width, sprite_height);
+	
 	//nome do produto
+	
 	//configurando o alpha
 		gpu_set_colorwriteenable(1, 1, 1, 0);
 	draw_text(_x1 + _marg, _y1 + _marg, nome);

@@ -27,37 +27,18 @@ global.exibe_managers = false;
 
 //Sistema de Dinheiro
 global.gold = 4;
+global.gold_seg = 0;
 
 
 //Informações dos managers
-global.manager = [0, 0, 0, 0, 0, 0, 0, 0,];
+global.manager = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
 
 //lista dos produtos
-global.produtos = [0, 0, 0, 0, 0, 0, 0, 0,];
+global.produtos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,];
+global.produtos_info = array_create(10, 0);
 
+global.idioma = 0;
 
-//Abrindo o meu arquivo json que foi importado
-
-var _file =  file_text_open_read("dados.json");
-var _txt = "";
-//Rodando pelo meu file lendo todas as linhas até ele acabar
-//criando um loop
-while(true)
-{
-	//Se ele chegou no final do arquivo ele sai do loop
-	if(file_text_eof(_file))
-	{
-		//Saindo do loop
-		break;
-	}
-	else
-	{
-		var _linha = file_text_readln(_file);
-		_txt += _linha;
-	}		
-}
-//Convertendo o texto em struct
-global.struct_produtos = json_parse(_txt).items; 
 
 
 

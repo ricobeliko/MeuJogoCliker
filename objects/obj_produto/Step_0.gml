@@ -27,6 +27,7 @@ var _mouse_click = mouse_check_button_pressed(mb_left);
 
 if(_mouse_sobre)
 {
+	infos = true;
 	if (_mouse_click)
 	{
 	
@@ -53,7 +54,11 @@ if(_mouse_sobre)
 		}
 	}	
 }
-
+else
+{
+	infos = false;
+	efeito_comprar = false;	
+}
 
 
 
